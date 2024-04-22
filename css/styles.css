@@ -6,3 +6,20 @@
     text-decoration: none !important;
     list-style: none !important;
 }
+body{
+    background-image: url("../img/prevoir-meteo.jpeg") ;
+    /* background-color: rgba(23, 135, 233, 0.342); */
+}
+form input{
+   border: 0;
+}
+form input::placeholder{
+    background-color: transparent !important;
+    color:grey;
+    
+    
+}
+.col{
+    width: 100px;
+    height: 100px;
+}

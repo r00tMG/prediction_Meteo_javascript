@@ -11,10 +11,44 @@
     <script type="module" src="js/script.js"></script>
 </head>
 
-<body>
+<body class="bg-tansparent">
 
 
-
+<div class="container w-75 my-5 bg-info rounded shadow mx-auto"  style="--bs-bg-opacity: .2;height: auto;">
+    <div class="container d-flex justify-content-center">
+        <form action="">
+            <input class="rounded" type="text" name="city" id="search-input" placeholder="entrer votre ville..."> 
+            <button class="btn btn-sm btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg>
+            </button>
+        </form>
+    </div>
+    <div class="container" style="background-image: url("../img/prevoir-meteo.jpeg") ">
+        <div class="row">
+            <div class="container text-center" id="data-wrapper" ></div>
+            <div class="container d-flex justify-content-center" >
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col bg-primary m-1 rounded text-center" id="city"></div>
+                            <div class="col bg-success m-1 rounded text-center" id="temp"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col bg-success m-1 rounded text-center" id="humidite"></div>
+                            <div class="col bg-primary m-1 rounded text-center" id="vent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
