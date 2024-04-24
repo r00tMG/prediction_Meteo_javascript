@@ -7,8 +7,12 @@
     list-style: none !important;
 }
 body{
-    background-image: url("../img/prevoir-meteo.jpeg") ;
+    /* background-image: url("../img/prevoir-meteo.jpeg")  !important; ; */
+    background-size:no-repeat cover !important;
+    /* opacity: .4; */
     /* background-color: rgba(23, 135, 233, 0.342); */
+    color: rgb(4, 0, 0);
+    font-size: large;
 }
 form input{
    border: 0;
@@ -16,10 +20,14 @@ form input{
 form input::placeholder{
     background-color: transparent !important;
     color:grey;
+    padding: 3px 5px;
     
     
 }
-.col{
-    width: 100px;
-    height: 100px;
+.col_size{
+    width: auto;
+    height: auto;
+}
+.date_style{
+    opacity: .5;
 }
