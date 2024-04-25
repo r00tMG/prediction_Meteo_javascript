@@ -7,12 +7,15 @@
     list-style: none !important;
 }
 body{
-    /* background-image: url("../img/prevoir-meteo.jpeg")  !important; ; */
-    background-size:no-repeat cover !important;
-    /* opacity: .4; */
-    /* background-color: rgba(23, 135, 233, 0.342); */
-    color: rgb(4, 0, 0);
+    /* opacity: .6; */
+    background-color: rgb(3, 3, 37);
+    color: rgb(250, 248, 248);
     font-size: large;
+}
+.bg_img{
+    background-image: url("../img/prevoir-meteo.jpeg")  !important; ;
+    background-size:no-repeat cover !important;
+
 }
 form input{
    border: 0;

@@ -6,7 +6,12 @@ const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q='
  */
 function affichageData(res){
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { 
+        weekday: 'long', 
+        // year: 'numeric', 
+        // month: 'long', 
+        // day: 'numeric' 
+    }
 const time= new Date().toLocaleTimeString()
 const date = new Date().toLocaleString('fr-FR',options)
 document.querySelector('#city').style.width="auto"
@@ -20,9 +25,9 @@ document.querySelector('#city').innerHTML = `
             <img src="https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
         </div>
         <div class="col-4 flex-wrap">
-            <h5 class=" ">
+            <h5 class="fs-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    class="text-danger bi bi-geo-alt-fill" viewBox="0 0 16 16">
                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
                 ${res.name}
@@ -31,19 +36,19 @@ document.querySelector('#city').innerHTML = `
         <p class="fs-2 py-3">${res.weather[0].description}<p>
         <div class="row mb-3 bg-light d-flex flex-wrap rounded shadow justify-content-center">
         <div class="col-4 m-0 flex-wrap">
-        <p>
+        <p class="text-dark">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
             viewBox="0 0 16 16">
             <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
             <path
                 d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z" />
         </svg>
-        Température</p>
-        <p>${Math.round(res.main.temp)} °C</p>
+        Temp</p>
+        <p class="text-dark">${Math.round(res.main.temp)} °C</p>
         </div>
       
         <div class="col-4 m-0 flex-wrap">
-            <p class="text-center">
+            <p class="text-center text-dark">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-half"
             viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -52,10 +57,10 @@ document.querySelector('#city').innerHTML = `
                 d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z" />
             </svg>
             Humidité</p>
-            <p class="text-center">${res.main.humidity}%</p>
+            <p class="text-center text-dark">${res.main.humidity}%</p>
         </div>
         <div class="col-4 m-0 flex-wrap">
-            <p class="text-center">
+            <p class="text-center text-dark">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer"
             viewBox="0 0 16 16">
             <path
@@ -64,7 +69,7 @@ document.querySelector('#city').innerHTML = `
                 d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0" />
             </svg>
             Vent</p>
-            <p class="text-center">${Math.round(res.wind.speed)}km/h</p>
+            <p class="text-center text-dark">${Math.round(res.wind.speed)}km/h</p>
         </div>
         </div>
 
@@ -112,7 +117,6 @@ function(e){
 e.preventDefault();
 // const city = new FormData(e.currentTarget)
 // const ville = city.get('city')
-
 const ville = document.querySelector('#search-input').value
 // console.log(ville)
 main(ville)
@@ -139,7 +143,7 @@ function affichagePrevision(lis){
              }
          })
          
-         console.log(fiveForecastDay[1])
+        //  console.log(fiveForecastay[1])
         article1.innerHTML = `
             <p>${new Date(fiveForecastDay[1].dt_txt).toLocaleDateString()}</p>
             <p><img src="https://openweathermap.org/img/wn/${fiveForecastDay[1].weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
