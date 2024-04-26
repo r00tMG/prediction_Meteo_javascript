@@ -26,7 +26,7 @@ document.querySelector('#city').innerHTML = `
         </div>
         <div class="col-4 flex-wrap">
             <h5 class="fs-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="text-danger bi bi-geo-alt-fill" viewBox="0 0 16 16">
                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                 </svg>
@@ -37,7 +37,7 @@ document.querySelector('#city').innerHTML = `
         <div class="row mb-3 bg-light d-flex flex-wrap rounded shadow justify-content-center">
         <div class="col-4 m-0 flex-wrap">
         <p class="text-dark">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-primary bi bi-thermometer"
             viewBox="0 0 16 16">
             <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
             <path
@@ -49,7 +49,7 @@ document.querySelector('#city').innerHTML = `
       
         <div class="col-4 m-0 flex-wrap">
             <p class="text-center text-dark">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-half"
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-primary bi bi-droplet-half"
             viewBox="0 0 16 16">
             <path fill-rule="evenodd"
                 d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z" />
@@ -61,7 +61,7 @@ document.querySelector('#city').innerHTML = `
         </div>
         <div class="col-4 m-0 flex-wrap">
             <p class="text-center text-dark">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer"
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-primary bi bi-speedometer"
             viewBox="0 0 16 16">
             <path
                 d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z" />
@@ -125,102 +125,6 @@ main(ville)
 )
 
 
-/**
- * 
- * @param {Object} lis
- * @returns {HTMLElement} article
- */
-
-function affichagePrevision(lis){
-       
-        // const article = document.querySelector('#article')
-        const article1 = document.querySelector('#article1')
-            const forecastByDay = []
-        const fiveForecastDay = lis.filter(l =>{
-             const date = new Date(l.dt_txt).getDate()
-             if(!forecastByDay.includes(date)){
-                return forecastByDay.push(date)
-             }
-         })
-         
-        //  console.log(fiveForecastay[1])
-        article1.innerHTML = `
-            <p>${new Date(fiveForecastDay[1].dt_txt).toLocaleDateString()}</p>
-            <p><img src="https://openweathermap.org/img/wn/${fiveForecastDay[1].weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
-            </p>
-            <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
-            viewBox="0 0 16 16">
-            <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-            <path
-                d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z" />
-            </svg>
-            ${Math.round(fiveForecastDay[1].main.temp)} °C</p>
-
-        `
-        const article2 = document.querySelector('#article2')
-        article2.innerHTML = `
-            <p>${new Date(fiveForecastDay[2].dt_txt).toLocaleDateString()}</p>
-            <p><img src="https://openweathermap.org/img/wn/${fiveForecastDay[2].weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
-            </p>
-            <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
-            viewBox="0 0 16 16">
-            <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-            <path
-            d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z" />
-            </svg>
-            ${Math.round(fiveForecastDay[2].main.temp)} °C</p>
-            
-            `
-            const article3 = document.querySelector('#article3')
-            article3.innerHTML = `
-            <p>${new Date(fiveForecastDay[3].dt_txt).toLocaleDateString()}</p>
-            <p><img src="https://openweathermap.org/img/wn/${fiveForecastDay[3].weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
-            </p>
-            <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
-            viewBox="0 0 16 16">
-            <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-            <path
-            d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z" />
-            </svg>
-            ${Math.round(fiveForecastDay[3].main.temp)} °C</p>
-            
-            `
-            const article4 = document.querySelector('#article4')
-            article4.innerHTML = `
-            <p>${new Date(fiveForecastDay[4].dt_txt).toLocaleDateString()}</p>
-            <p><img src="https://openweathermap.org/img/wn/${fiveForecastDay[4].weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
-            </p>
-            <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
-            viewBox="0 0 16 16">
-            <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-            <path
-            d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z" />
-            </svg>
-            ${Math.round(fiveForecastDay[4].main.temp)} °C</p>
-
-            `
-            const article5 = document.querySelector('#article5')
-            article5.innerHTML = `
-            <p>${new Date(fiveForecastDay[5].dt_txt).toLocaleDateString()}</p>
-            <p><img src="https://openweathermap.org/img/wn/${fiveForecastDay[5].weather[0].icon}@2x.png" id="image-icone" class="img-fluid" width="100%" heigth="100%" alt="icone weather">
-            </p>
-            <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer"
-            viewBox="0 0 16 16">
-            <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-            <path
-                d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z" />
-            </svg>
-            ${Math.round(fiveForecastDay[5].main.temp)} °C</p>
-             `
-
-}
-
-
 
 /**
  * 
@@ -230,7 +134,7 @@ function affichagePrevision(lis){
  * 
  * @returns {Object}
  */
-
+//Affichage par défaut de la position correspondante à l'utilisateur
 async function recupération(latitude,longitude) {
     let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&APPID=${apiKey}&units=metric&lang=fr`
     try {
@@ -244,10 +148,10 @@ async function recupération(latitude,longitude) {
         // console.log(ville)
         main(ville) // Affichage par défaut la ville correspondante à ma position de l'utilisateur
  
-        const lis = data.list 
+        // const lis = data.list 
         // console.log(lis)
         
-        affichagePrevision(lis)
+        // affichagePrevision(lis)
 
     } catch (error) {
         console.error("Error fetching data:", error)
@@ -286,9 +190,5 @@ if(navigator.geolocation){
 }else{
     alert('Geolocation is not supported by this browser.')
 }
-
-
-
-
 
 
